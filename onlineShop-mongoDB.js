@@ -88,7 +88,7 @@ app.post(productbaseurl, function (req, res) {
     });
 })
 
-
+ 
 
 //delete product by id
 app.delete(productbaseurl + '/:id', function (req, res) {
@@ -96,7 +96,7 @@ app.delete(productbaseurl + '/:id', function (req, res) {
     .exec()
     .then(result => {
       console.log(result);
-      res.status(200).json(prod);
+      res.status(200).send(result);
     })
     .catch(err => {
       console.log(err);
@@ -104,9 +104,7 @@ app.delete(productbaseurl + '/:id', function (req, res) {
     });
 })
 
-
-
-//update product by id
+//update projson(prod)duct by id
 app.put(productbaseurl + '/:id', function (req, res) {
   Product.update({ _id: req.params.id }, { price: 100 }) //that's the new price
     .exec()
@@ -120,4 +118,4 @@ app.put(productbaseurl + '/:id', function (req, res) {
     });
 })
 
-app.listen(3000)
+app.listen(3000);
