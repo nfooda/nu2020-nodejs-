@@ -33,7 +33,7 @@ router.get('/', function (req, res) {
     .exec()
     .then(book => {
       for (i = 0; i < book.length; i++)
-        console.log("title: " + book[i].title + ", price: " + prod[i].price);
+        console.log("title: " + book[i].title + ", price: " + book[i].price);
       res.status(200).json(book);
     })
     .catch(err => {
@@ -48,7 +48,7 @@ router.get('/:isbn', function (req, res) {
   Books.findOne({ isbn: req.params.isbn })
     .exec()
     .then(book => {
-      console.log("title: " + book.title + ", price: " + prod.price);
+      console.log("title: " + book.title + ", price: " + book.price);
       res.status(200).send(book);
     })
     .catch(err => {
